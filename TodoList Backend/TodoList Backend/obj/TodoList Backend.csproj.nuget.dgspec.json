@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/TodoList Backend.csproj": {}
+    "/Users/sohaibsalman/Johns-Lyng-.NET-Web-API/TodoList Backend/TodoList Backend/TodoList Backend.csproj": {}
   },
   "projects": {
-    "/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/TodoList Backend.csproj": {
+    "/Users/sohaibsalman/Johns-Lyng-.NET-Web-API/TodoList Backend/TodoList Backend/TodoList Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/TodoList Backend.csproj",
+        "projectUniqueName": "/Users/sohaibsalman/Johns-Lyng-.NET-Web-API/TodoList Backend/TodoList Backend/TodoList Backend.csproj",
         "projectName": "TodoList Backend",
-        "projectPath": "/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/TodoList Backend.csproj",
+        "projectPath": "/Users/sohaibsalman/Johns-Lyng-.NET-Web-API/TodoList Backend/TodoList Backend/TodoList Backend.csproj",
         "packagesPath": "/Users/sohaibsalman/.nuget/packages/",
-        "outputPath": "/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/",
+        "outputPath": "/Users/sohaibsalman/Johns-Lyng-.NET-Web-API/TodoList Backend/TodoList Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sohaibsalman/.nuget/NuGet/NuGet.Config"
