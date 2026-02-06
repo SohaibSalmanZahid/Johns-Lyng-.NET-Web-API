@@ -1,0 +1,36 @@
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/appsettings.Development.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/appsettings.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend.staticwebassets.endpoints.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend.deps.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend.runtimeconfig.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/TodoList Backend.pdb
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/Microsoft.OpenApi.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.csproj.AssemblyReference.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.AssemblyInfoInputs.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.AssemblyInfo.cs
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.csproj.CoreCompileInputs.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/scopedcss/bundle/TodoList Backend.styles.css
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/staticwebassets.build.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/staticwebassets.development.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/swae.build.ex.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList.CD45DA12.Up2Date
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/refint/TodoList Backend.dll
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.pdb
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/TodoList Backend.genruntimeconfig.cache
+/Users/sohaibsalman/RiderProjects/TodoList Backend/TodoList Backend/obj/Debug/net10.0/ref/TodoList Backend.dll
