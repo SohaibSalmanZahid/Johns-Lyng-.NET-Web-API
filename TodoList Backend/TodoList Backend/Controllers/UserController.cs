@@ -8,17 +8,20 @@ namespace TodoList_Backend.Controllers;
 [Route("api/[controller]")]
 public class UserController : Controller
 {
+    private readonly ILogger<UserController> _logger;
     
     private readonly IUserService _userService;
     
-    public UserController(IUserService userService)
+    public UserController(IUserService userService, ILogger<UserController> logger)
     {
         _userService = userService;
+        _logger = logger;
     }
     
     [HttpGet]
     public IActionResult GetAllUsers()
     {
+        _logger.LogInformation("Getting All Users Controller");
         List<UserResponseDTO> users = new List<UserResponseDTO>();
         users = _userService.getAllUsers();
         return Ok(users);

@@ -17,6 +17,10 @@ builder.Services.AddScoped<IToDoTaskService, ToDoTaskServiceImpl>();
 
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IToDoRepository, ToDo_Repository>();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

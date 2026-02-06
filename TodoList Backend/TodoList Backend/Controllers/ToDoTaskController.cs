@@ -10,10 +10,12 @@ namespace TodoList_Backend.Controllers;
 public class ToDoTaskController : Controller
 {
     private readonly IToDoTaskService _toDoTaskService;
+    private readonly ILogger<ToDoTaskController> _logger;
     
-    public ToDoTaskController(IToDoTaskService taskService)
+    public ToDoTaskController(IToDoTaskService taskService, ILogger<ToDoTaskController> logger)
     {
         _toDoTaskService = taskService;
+        _logger = logger;
     }
     
     [HttpDelete("{taskId:guid}")]

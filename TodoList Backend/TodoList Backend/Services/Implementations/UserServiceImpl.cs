@@ -9,13 +9,16 @@ namespace TodoList_Backend.Services.Implementations;
 public class UserServiceImpl : IUserService
 {
     private readonly IUserRepository _userRepository;
+    private readonly ILogger<UserServiceImpl> _logger;
     
-    public  UserServiceImpl(IUserRepository userRepository)
+    public  UserServiceImpl(IUserRepository userRepository, ILogger<UserServiceImpl> logger)
     {
         _userRepository = userRepository;
+        _logger = logger;
     }
     public List<UserResponseDTO> getAllUsers()
     {
+        _logger.Log(LogLevel.Information, "Getting all Users Service");
         List<UserResponseDTO> users = new List<UserResponseDTO>();
         try
         {
@@ -30,7 +33,7 @@ public class UserServiceImpl : IUserService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e.Message);
             throw;
         }
 
@@ -39,6 +42,7 @@ public class UserServiceImpl : IUserService
 
     public UserResponseDTO addNewUser(string username)
     {
+        _logger.Log(LogLevel.Information, "Adding new User Service");
         UserResponseDTO user = new UserResponseDTO();
         
         try
@@ -51,7 +55,7 @@ public class UserServiceImpl : IUserService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e.Message);
             throw;
         }
 

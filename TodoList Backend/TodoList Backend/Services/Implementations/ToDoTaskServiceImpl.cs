@@ -12,14 +12,17 @@ namespace TodoList_Backend.Services.Implementations;
 public class ToDoTaskServiceImpl:IToDoTaskService
 {
     private readonly IToDoRepository _todoRepository;
-
-    public ToDoTaskServiceImpl(IToDoRepository todoRepository)
+    private readonly ILogger<ToDoTaskServiceImpl> _logger;
+    
+    public ToDoTaskServiceImpl(IToDoRepository todoRepository, ILogger<ToDoTaskServiceImpl> logger)
     {
         _todoRepository = todoRepository;
+        _logger = logger;
     }
     
     public List<ToDoTaskResponseDTO> getUserTasks(Guid userId)
     {
+        _logger.Log(LogLevel.Information, "GetUserTasks called Service");
         List<ToDoTaskResponseDTO> userTasks = new List<ToDoTaskResponseDTO>();
         try
         {
@@ -65,7 +68,7 @@ public class ToDoTaskServiceImpl:IToDoTaskService
             Console.WriteLine(e);
             throw;
         }
-       return response;
+        return response;
     }
 
     public DeleteToDoTaskResponseDTO deleteUserTask(Guid taskId)
