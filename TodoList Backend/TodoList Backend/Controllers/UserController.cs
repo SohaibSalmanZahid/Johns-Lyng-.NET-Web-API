@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TodoList_Backend.DTOs.RequestDTOs;
 using TodoList_Backend.DTOs.ResponseDTOs;
 using TodoList_Backend.Services.Interfaces;
 
@@ -21,16 +22,17 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult GetAllUsers()
     {
-        _logger.LogInformation("Getting All Users Controller");
+        _logger.LogInformation("GetAllUsers called Controller");
         List<UserResponseDTO> users = new List<UserResponseDTO>();
         users = _userService.getAllUsers();
         return Ok(users);
     }
 
-    [HttpPost("{username}")]
-    public IActionResult AddNewUser([FromRoute] String username)
+    [HttpPost]
+    public IActionResult AddNewUser([FromBody] UserRequestDTO user)
     {
-        return Ok(_userService.addNewUser(username));
+        _logger.LogInformation("AddNewUser called Controller");
+        return Ok(_userService.addNewUser(user));
     }
 
    

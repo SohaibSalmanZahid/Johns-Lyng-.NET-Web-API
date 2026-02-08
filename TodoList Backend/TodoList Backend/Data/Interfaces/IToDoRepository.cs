@@ -8,4 +8,5 @@ public interface IToDoRepository
     public ToDoTask AddUserTask(ToDoTask userTask);
     public DeleteToDoTaskResponseDTO deleteTask(Guid taskId);
     public List<ToDoTask> getAllUserTasks(Guid userId);
+    public bool getUserTaskByTaskId(Guid taskId);
 }

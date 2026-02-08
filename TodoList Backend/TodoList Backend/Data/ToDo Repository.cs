@@ -41,7 +41,19 @@ public class ToDo_Repository : IToDoRepository
                 todoTasks.RemoveAt(i);
             }
         }
-
         return new DeleteToDoTaskResponseDTO();
+    }
+
+    public bool getUserTaskByTaskId(Guid taskId)
+    {
+        for (int i = 0; i < todoTasks.Count; i++)
+        {
+            if (todoTasks[i].TaskId == taskId)
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

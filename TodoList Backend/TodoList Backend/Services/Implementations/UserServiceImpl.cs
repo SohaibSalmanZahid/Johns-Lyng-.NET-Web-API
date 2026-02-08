@@ -1,6 +1,8 @@
+using System.Text.Json;
 using TodoList_Backend.Data;
 using TodoList_Backend.Data.Interfaces;
 using TodoList_Backend.DomainModel;
+using TodoList_Backend.DTOs.RequestDTOs;
 using TodoList_Backend.DTOs.ResponseDTOs;
 using TodoList_Backend.Services.Interfaces;
 
@@ -18,11 +20,16 @@ public class UserServiceImpl : IUserService
     }
     public List<UserResponseDTO> getAllUsers()
     {
-        _logger.Log(LogLevel.Information, "Getting all Users Service");
+        _logger.Log(LogLevel.Information, "GetAllUsers called Service");
+        
         List<UserResponseDTO> users = new List<UserResponseDTO>();
         try
         {
             List<User> userList = _userRepository.getAllUsers();
+            if (!userList.Any())
+            {
+                throw new Exception("No Users Found");
+            }
             for (int i = 0; i < userList.Count; i++)
             {
                 UserResponseDTO user = new UserResponseDTO();
@@ -40,15 +47,16 @@ public class UserServiceImpl : IUserService
         return users;
     }
 
-    public UserResponseDTO addNewUser(string username)
+    public UserResponseDTO addNewUser(UserRequestDTO userRequest)
     {
-        _logger.Log(LogLevel.Information, "Adding new User Service");
+        _logger.Log(LogLevel.Information, "AddNewUser called Service, user: " + JsonSerializer.Serialize(userRequest));
+        
         UserResponseDTO user = new UserResponseDTO();
         
         try
         {
             User newUser = new User();
-            newUser.Username = username;
+            newUser.Username = userRequest.name;
             newUser = _userRepository.addNewUser(newUser);
             user.userId = newUser.UserId;
             user.userName = newUser.Username;

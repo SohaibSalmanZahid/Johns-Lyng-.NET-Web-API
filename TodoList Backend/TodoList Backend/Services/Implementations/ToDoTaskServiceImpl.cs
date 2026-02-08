@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using TodoList_Backend.Data;
 using TodoList_Backend.Data.Interfaces;
@@ -22,25 +23,35 @@ public class ToDoTaskServiceImpl:IToDoTaskService
     
     public List<ToDoTaskResponseDTO> getUserTasks(Guid userId)
     {
-        _logger.Log(LogLevel.Information, "GetUserTasks called Service");
+        _logger.Log(LogLevel.Information, "GetUserTasks called Service, user id: " + userId);
+
+        if (userId == Guid.Empty)
+        {
+            throw new Exception("UserId cannot be empty");
+        }
+        
         List<ToDoTaskResponseDTO> userTasks = new List<ToDoTaskResponseDTO>();
         try
         {
-            List<ToDoTask> users = _todoRepository.getAllUserTasks(userId);
-            for (int i = 0; i < users.Count; i++)
+            List<ToDoTask> allUserTasks = _todoRepository.getAllUserTasks(userId);
+            if (!allUserTasks.Any())
+            {
+                throw new Exception("User Tasks not found");
+            }
+            for (int i = 0; i < allUserTasks.Count; i++)
             {
                 ToDoTaskResponseDTO task = new ToDoTaskResponseDTO();
-                task.userId = users[i].userId;
-                task.todoTaskId = users[i].TaskId;
-                task.createdAt = users[i].CreatedAt;
-                task.dueDate = users[i].DueDate;
-                task.taskDescription = users[i].TaskDescription;
+                task.userId = allUserTasks[i].userId;
+                task.taskId = allUserTasks[i].TaskId;
+                task.createdAt = allUserTasks[i].CreatedAt;
+                task.dueDate = allUserTasks[i].DueDate;
+                task.taskDescription = allUserTasks[i].TaskDescription;
                 userTasks.Add(task);
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e.Message);
             throw;
         }
         return userTasks;
@@ -48,11 +59,13 @@ public class ToDoTaskServiceImpl:IToDoTaskService
 
     public ToDoTaskResponseDTO addUserTask(ToDoTaskRequestDTO task)
     {
+        _logger.Log(LogLevel.Information, "AddUserTask called Service, task: " + JsonSerializer.Serialize(task));
+        
         ToDoTaskResponseDTO response = new ToDoTaskResponseDTO();
         try
         {
             ToDoTask toDoTask = new ToDoTask();
-            toDoTask.userId = task.userId;
+            toDoTask.userId = task.userId;  
             toDoTask.CreatedAt = task.createdAt;
             toDoTask.DueDate = task.dueDate;
             toDoTask.TaskDescription = task.taskDescription;
@@ -61,11 +74,11 @@ public class ToDoTaskServiceImpl:IToDoTaskService
             response.createdAt = toDoTask.CreatedAt;
             response.dueDate = toDoTask.DueDate;
             response.taskDescription = toDoTask.TaskDescription;
-            response.todoTaskId = toDoTask.TaskId;
+            response.taskId = toDoTask.TaskId;
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e.Message);
             throw;
         }
         return response;
@@ -73,13 +86,23 @@ public class ToDoTaskServiceImpl:IToDoTaskService
 
     public DeleteToDoTaskResponseDTO deleteUserTask(Guid taskId)
     {
+        _logger.Log(LogLevel.Information, "DeleteUserTask called Service, taskId: " + taskId);
         try
         {
+            if (taskId == Guid.Empty)
+            {
+                throw new Exception("TaskId cannot be empty");
+            }
+
+            if (!_todoRepository.getUserTaskByTaskId(taskId))
+            {
+                throw new Exception("Task Not Found");
+            }
             _todoRepository.deleteTask(taskId);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e.Message);
             throw;
         }
         

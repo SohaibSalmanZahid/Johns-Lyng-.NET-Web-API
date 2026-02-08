@@ -21,12 +21,14 @@ public class ToDoTaskController : Controller
     [HttpDelete("{taskId:guid}")]
     public IActionResult DeleteUserTask([FromRoute] Guid taskId)
     {
+        _logger.LogInformation("DeleteUserTask called Controller");
         return Ok(_toDoTaskService.deleteUserTask(taskId));
     }
     
     [HttpPost]
     public IActionResult AddUserTask([FromBody] ToDoTaskRequestDTO task)
     {
+        _logger.LogInformation("AddUserTask called Controller");
         ToDoTaskResponseDTO userTask = _toDoTaskService.addUserTask(task);
         return Ok(userTask);
     }
@@ -34,6 +36,7 @@ public class ToDoTaskController : Controller
     [HttpGet("{userId:guid}")]
     public IActionResult GetAllUserTasks([FromRoute] Guid userId)
     {
+        _logger.LogInformation("GetAllUserTasks called Controller");
         List<ToDoTaskResponseDTO> tasks = _toDoTaskService.getUserTasks(userId);
         return Ok(tasks);
     }
