@@ -14,14 +14,14 @@ public class ToDo_Repository : IToDoRepository
     public List<ToDoTask> getAllUserTasks(Guid userId)
     {
         List<ToDoTask> userTasks = new List<ToDoTask>();
-        for (int i = 0; i < todoTasks.Count; i++)
+
+        foreach (var todo in todoTasks)
         {
-            if (todoTasks[i].userId == userId)
+            if (todo.userId == userId)
             {
-                userTasks.Add(todoTasks[i]);
+                userTasks.Add(todo);
             }
         }
-        
         return userTasks;
     }
 
@@ -34,21 +34,23 @@ public class ToDo_Repository : IToDoRepository
 
     public DeleteToDoTaskResponseDTO deleteTask(Guid taskId)
     {
-        for (int i = 0; i < todoTasks.Count; i++)
+        foreach (var todo in todoTasks)
         {
-            if (todoTasks[i].TaskId == taskId)
+            if (todo.TaskId == taskId)
             {
-                todoTasks.RemoveAt(i);
+                todoTasks.Remove(todo);
+                break;
             }
         }
+       
         return new DeleteToDoTaskResponseDTO();
     }
 
     public bool getUserTaskByTaskId(Guid taskId)
     {
-        for (int i = 0; i < todoTasks.Count; i++)
+        foreach (var todo in todoTasks)
         {
-            if (todoTasks[i].TaskId == taskId)
+            if (todo.TaskId == taskId)
             {
                 return true;
             }
