@@ -5,8 +5,8 @@ namespace TodoList_Backend.Data.Interfaces;
 
 public interface IToDoRepository
 {
-    public ToDoTask AddUserTask(ToDoTask userTask);
-    public DeleteToDoTaskResponseDTO deleteTask(Guid taskId);
-    public List<ToDoTask> getAllUserTasks(Guid userId);
-    public bool getUserTaskByTaskId(Guid taskId);
+    ToDoTask AddUserTask(ToDoTask userTask);
+    DeleteToDoTaskResponseDTO deleteTask(Guid taskId);
+    List<ToDoTask> getAllUserTasks(Guid userId);
+    bool getUserTaskByTaskId(Guid taskId);
 }

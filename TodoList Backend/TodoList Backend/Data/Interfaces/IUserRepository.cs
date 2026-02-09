@@ -6,4 +6,5 @@ public interface IUserRepository
 {
     User addNewUser(User newUser);
     List<User> getAllUsers();
+    User? getUserById(Guid userId);
 }

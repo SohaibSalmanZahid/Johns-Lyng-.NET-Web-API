@@ -28,7 +28,7 @@ public class UserServiceImpl : IUserService
             List<User> userList = _userRepository.getAllUsers();
             if (!userList.Any())
             {
-                throw new Exception("No Users Found");
+                _logger.Log(LogLevel.Information, "No Users found");
             }
             for (int i = 0; i < userList.Count; i++)
             {

@@ -5,18 +5,17 @@ namespace TodoList_Backend.DTOs;
 
 public class DeleteToDoTaskResponseDTO
 {
+    public string message { get; set; }
+    public Guid todoTaskId { get; set; }
+    
     public DeleteToDoTaskResponseDTO()
     {
     }
 
-    public DeleteToDoTaskResponseDTO(int statusCode, string message, Guid todoTaskId)
+    public DeleteToDoTaskResponseDTO(string message, Guid todoTaskId)
     {
-        this.statusCode = statusCode;
         this.message = message;
         this.todoTaskId = todoTaskId;
     }
 
-    public int  statusCode { get; set; }
-    public string message { get; set; }
-    public Guid todoTaskId { get; set; }
 }

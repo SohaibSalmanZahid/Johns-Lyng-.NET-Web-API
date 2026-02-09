@@ -13,11 +13,13 @@ namespace TodoList_Backend.Services.Implementations;
 public class ToDoTaskServiceImpl:IToDoTaskService
 {
     private readonly IToDoRepository _todoRepository;
+    private readonly IUserRepository _userRepository;
     private readonly ILogger<ToDoTaskServiceImpl> _logger;
     
-    public ToDoTaskServiceImpl(IToDoRepository todoRepository, ILogger<ToDoTaskServiceImpl> logger)
+    public ToDoTaskServiceImpl(IToDoRepository todoRepository, ILogger<ToDoTaskServiceImpl> logger, IUserRepository userRepository)
     {
         _todoRepository = todoRepository;
+        _userRepository = userRepository;
         _logger = logger;
     }
     
@@ -27,7 +29,8 @@ public class ToDoTaskServiceImpl:IToDoTaskService
 
         if (userId == Guid.Empty)
         {
-            throw new Exception("UserId cannot be empty");
+            _logger.LogWarning("User Id cannot be empty");
+            throw new ArgumentException("UserId cannot be empty");
         }
         
         List<ToDoTaskResponseDTO> userTasks = new List<ToDoTaskResponseDTO>();
@@ -36,7 +39,7 @@ public class ToDoTaskServiceImpl:IToDoTaskService
             List<ToDoTask> allUserTasks = _todoRepository.getAllUserTasks(userId);
             if (!allUserTasks.Any())
             {
-                throw new Exception("User Tasks not found");
+                _logger.LogWarning("No Tasks Found for the user with id: " + userId);
             }
             for (int i = 0; i < allUserTasks.Count; i++)
             {
@@ -64,6 +67,11 @@ public class ToDoTaskServiceImpl:IToDoTaskService
         ToDoTaskResponseDTO response = new ToDoTaskResponseDTO();
         try
         {
+            if (_userRepository.getUserById(task.userId) == null)
+            {
+                _logger.LogWarning("User with id: " + task.userId + " not found");
+                throw new KeyNotFoundException("User with id: " + task.userId + " not found");
+            }
             ToDoTask toDoTask = new ToDoTask();
             toDoTask.userId = task.userId;  
             toDoTask.CreatedAt = task.createdAt;
@@ -91,12 +99,14 @@ public class ToDoTaskServiceImpl:IToDoTaskService
         {
             if (taskId == Guid.Empty)
             {
-                throw new Exception("TaskId cannot be empty");
+                _logger.LogWarning("Task Id cannot be empty");
+                throw new ArgumentException("Task Id cannot be empty");
             }
 
             if (!_todoRepository.getUserTaskByTaskId(taskId))
             {
-                throw new Exception("Task Not Found");
+                _logger.LogWarning("User with id: " + taskId + " not found");
+                throw new KeyNotFoundException("User with id: " + taskId + " not found");
             }
             _todoRepository.deleteTask(taskId);
         }
@@ -106,6 +116,6 @@ public class ToDoTaskServiceImpl:IToDoTaskService
             throw;
         }
         
-        return new DeleteToDoTaskResponseDTO(200, "Deleted Successfully",  taskId);
+        return new DeleteToDoTaskResponseDTO("Deleted Successfully",  taskId);
     }
 }

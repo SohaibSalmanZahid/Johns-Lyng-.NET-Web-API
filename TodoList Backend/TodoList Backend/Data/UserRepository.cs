@@ -21,4 +21,16 @@ public class UserRepository : IUserRepository
     {
         return users;
     }
+
+    public User? getUserById(Guid userId)
+    {
+        foreach (var user in users)
+        {
+            if (user.UserId == userId)
+            {
+                return user;
+            }
+        }
+        return null;
+    }
 }
